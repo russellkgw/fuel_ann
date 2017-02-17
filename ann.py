@@ -39,4 +39,4 @@ def pattern_array():
 
 myNeuron = Neuron(pattern_array())
 myNeuron.train_neuron()
-# myNeuron.eval_neuron(0)
+myNeuron.eval_neuron(1)
