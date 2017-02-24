@@ -18,3 +18,4 @@ class Pattern(object):
             weights.insert(i, random.random() - 0.45)
 
         return weights
+    

@@ -6,7 +6,6 @@ class Network(object):
     def __init__(self, patterns):
         self.patterns = patterns
 
-        # self.input_layer = Layer(10, 'input')
         self.hidden_layer = Layer(20, 'hidden')
         self.output_layer = Layer(5, 'output')
 

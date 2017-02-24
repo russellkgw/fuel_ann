@@ -1,6 +1,7 @@
 import random
 from pattern import Pattern
 from neuron import Neuron
+from vector import Vector
 
 class Layer(object):
 
@@ -9,6 +10,7 @@ class Layer(object):
         self.layer_type = layer_type
 
         self.layer_output_pattern = Pattern(initialize_zero_results(neuron_count), [], '') # Blank pattern used to store fire results and weights of neurons in this layer
+        self.vector = Vector(neuron_count)
 
         # Neuron weights for this (self) layer
         self.layer_weights = self.generate_random_weights(neuron_count)
@@ -36,15 +38,10 @@ class Layer(object):
 
         return neurons
 
-    def fire_layer(self, input_pattern):
+    def fire_layer(self, input_vector):
         fire_results = []
         for neuron in self.neurons:
-            fire_results.append(neuron.fire(input_pattern))
+            fire_results.append(neuron.fire(input_vector))
 
-        self.layer_output_pattern.vector = fire_results
-        return self.layer_output_pattern
-
-
-
-
-
+        self.vector.values = fire_results
+        return self.vector

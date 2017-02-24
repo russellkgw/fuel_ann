@@ -11,14 +11,14 @@ class Neuron(object):
 
     ###### Training ######
 
-    def fire(self, pattern):
-        # Compute NET (input vector * weights)
+    def fire(self, input_vector):
+        # Compute NET (input vector values * weights)
         net = 0.0
-        for i in range(0, len(pattern.vector) - 1):
-            net += pattern.vector[i] * pattern.weights[i]
+        for i in range(0, len(input_vector.vector)):
+            net += input_vector.vector[i] * input_vector.weights[i]
 
         # Compute bias
-        theta = pattern.bias_value * pattern.bias_weight
+        theta = input_vector.bias_value * input_vector.bias_weight
 
         result = net - theta
         return activation.sigmoid(result)
