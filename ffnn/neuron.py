@@ -6,22 +6,26 @@ from pattern import Pattern
 
 class Neuron(object):
 
-    def __init__(self):
+    def __init__(self, neuron_type):
         self.weight = random.random() - 0.45
+        self.neuron_type = neuron_type
 
     ###### Training ######
 
     def fire(self, input_vector):
         # Compute NET (input vector values * weights)
-        net = 0.0
-        for i in range(0, len(input_vector.vector)):
-            net += input_vector.vector[i] * input_vector.weights[i]
+        # net = 0.0
+        # for i in range(0, len(input_vector.values)):
+        #     net += input_vector.values[i] * input_vector.weights[i]
 
         # Compute bias
-        theta = input_vector.bias_value * input_vector.bias_weight
+        # theta = input_vector.bias_value * input_vector.bias_weight
+        # theta = 0.0
+        # if self.neuron_type != 'hidden':
+        #     theta = input_vector.bias_value * input_vector.bias_weight
 
-        result = net - theta
-        return activation.sigmoid(result)
+        # result = net - theta
+        # return activation.sigmoid(result)
 
     # def update_weights(self, pattern):
     #     fire_result = self.fire(pattern)
